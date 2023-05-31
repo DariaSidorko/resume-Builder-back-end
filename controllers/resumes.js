@@ -36,9 +36,7 @@ router.get('/:id', (req, res)=>{
 
 // Create
 router.post('/', (req, res) => {
-  console.log(req.body)
     Resume.create(req.body, (error, createdResume)=>{
-      console.log(createdResume)
       res.json(createdResume)
     });
 });

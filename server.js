@@ -20,7 +20,7 @@ const methodOverride = require('method-override');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('jsx-view-engine').createEngine());
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.connect(mongoURI, { useNewUrlParser: true });
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
@@ -33,7 +33,7 @@ app.use(express.static('public')) // we need to tell express to use the public d
 app.use(cors( { origin: '*' })) // used to whitelist requests
 
 // Routes
-app.use('/resumes', resumesController)
+app.use('/resume', resumesController)
 
 
 
